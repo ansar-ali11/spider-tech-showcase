@@ -158,3 +158,60 @@
     box-shadow: 0 0 15px hsl(var(--spidey-glow-blue) / 0.2), inset 0 0 15px hsl(var(--spidey-glow-blue) / 0.05);
   }
 }
+
+/* Spider-web radial pattern */
+@keyframes web-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spidey-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+  25%, 75% { opacity: 0.85; }
+}
+
+@keyframes web-shoot {
+  0% { transform: scaleX(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-120px) translateX(30px); opacity: 0; }
+}
+
+@keyframes glitch-text {
+  0% { text-shadow: 2px 0 hsl(var(--spidey-red)), -2px 0 hsl(var(--spidey-blue)); }
+  25% { text-shadow: -2px 0 hsl(var(--spidey-red)), 2px 0 hsl(var(--spidey-blue)); }
+  50% { text-shadow: 0 2px hsl(var(--spidey-red)), 0 -2px hsl(var(--spidey-blue)); }
+  75% { text-shadow: 2px 2px hsl(var(--spidey-red)), -2px -2px hsl(var(--spidey-blue)); }
+  100% { text-shadow: 2px 0 hsl(var(--spidey-red)), -2px 0 hsl(var(--spidey-blue)); }
+}
+
+/* Spidey particle effect on sections */
+.spidey-particles::before,
+.spidey-particles::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: particle-float 3s ease-in-out infinite;
+}
+
+.spidey-particles::before {
+  background: hsl(var(--spidey-red));
+  top: 60%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.spidey-particles::after {
+  background: hsl(var(--spidey-blue));
+  top: 40%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
