@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "Angular", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png", desc: "Frontend & Scalable SPAs" },
+  { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg", desc: "Frontend & Scalable SPAs" },
   { name: "Spring Boot", icon: "https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/spring-boot/spring-boot.png", desc: "Backend APIs & Microservices" },
   { name: "Java", icon: "https://cdn-icons-png.flaticon.com/512/226/226777.png", desc: "Core Logic & Applications" },
   { name: "React", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png", desc: "Modern UI Development" },

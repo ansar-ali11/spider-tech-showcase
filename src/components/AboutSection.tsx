@@ -1,46 +1,75 @@
 import { motion } from "framer-motion";
-import { Code2, Layers, Zap } from "lucide-react";
+import profileImg from "@/assets/ansar-profile.jpeg";
 
 const AboutSection = () => {
   return (
     <section id="about" className="py-24 md:py-32 relative">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Visual */}
+          {/* Left - Profile Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative flex justify-center"
           >
-            <div className="relative w-full aspect-square max-w-md mx-auto">
-              <div className="absolute inset-4 border-2 border-primary/30 rounded-lg rotate-3" />
-              <div className="absolute inset-4 border-2 border-secondary/30 rounded-lg -rotate-3" />
-              <div className="relative bg-card rounded-lg p-8 border border-border flex flex-col items-center justify-center gap-6 h-full">
-                <div className="flex gap-4">
-                  <div className="w-16 h-16 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center glow-red">
-                    <Code2 className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="w-16 h-16 rounded-lg bg-secondary/10 border border-secondary/30 flex items-center justify-center glow-blue">
-                    <Layers className="w-8 h-8 text-secondary" />
-                  </div>
-                  <div className="w-16 h-16 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center glow-red">
-                    <Zap className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-                <div className="text-center">
-                  <h3 className="font-heading text-3xl font-bold text-gradient-spidey">
-                    Full Stack
-                  </h3>
-                  <p className="text-muted-foreground text-sm mt-2">
-                    Java · Angular · Spring Boot · React
-                  </p>
-                </div>
-                {/* Web pattern decoration */}
-                <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-primary/20 rounded-tl-lg" />
-                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-secondary/20 rounded-br-lg" />
-              </div>
+            <div className="relative w-72 h-72 md:w-96 md:h-96">
+              {/* Rotating border rings */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-full border-2 border-dashed border-primary/40"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-3 rounded-full border-2 border-dashed border-secondary/30"
+              />
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-6 rounded-full border border-dashed border-primary/20"
+              />
+
+              {/* Orbiting dots */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0"
+              >
+                <div className="absolute -top-2 left-1/2 w-3 h-3 rounded-full bg-primary glow-red" />
+              </motion.div>
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-3"
+              >
+                <div className="absolute top-1/2 -right-2 w-2 h-2 rounded-full bg-secondary glow-blue" />
+              </motion.div>
+
+              {/* Glowing backdrop */}
+              <div className="absolute inset-4 rounded-full bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 blur-xl" />
+
+              {/* Image container */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="absolute inset-4 rounded-full overflow-hidden border-2 border-border"
+              >
+                <img
+                  src={profileImg}
+                  alt="Mohammad Ansar Ali"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+              </motion.div>
+
+              {/* Corner accents */}
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-primary rounded-br-lg" />
+              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-secondary rounded-tl-lg" />
             </div>
           </motion.div>
 
