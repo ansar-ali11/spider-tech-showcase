@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 15% 5%;
+    --foreground: 0 0% 95%;
+
+    --card: 230 15% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 230 15% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 75% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 65% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 230 15% 15%;
+    --muted-foreground: 230 10% 55%;
+
+    --accent: 220 65% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 15% 18%;
+    --input: 230 15% 18%;
+    --ring: 0 75% 55%;
+
+    --radius: 0.75rem;
+
+    /* Spider-Man custom tokens */
+    --spidey-red: 0 75% 55%;
+    --spidey-blue: 220 65% 35%;
+    --spidey-dark: 230 15% 5%;
+    --spidey-glow-red: 0 100% 60%;
+    --spidey-glow-blue: 220 100% 60%;
+
+    --gradient-spidey: linear-gradient(135deg, hsl(0 75% 55%), hsl(220 65% 35%));
+    --gradient-dark: linear-gradient(180deg, hsl(230 15% 5%), hsl(230 15% 10%));
+    --shadow-spidey: 0 0 30px -5px hsl(0 75% 55% / 0.4);
+    --shadow-blue: 0 0 30px -5px hsl(220 65% 35% / 0.4);
+
+    --sidebar-background: 230 15% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 75% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 65% 35%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 230 15% 18%;
+    --sidebar-ring: 0 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* Glitch animation */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(-1deg); }
+  40% { transform: skew(2deg); }
+  60% { transform: skew(-0.5deg); }
+  80% { transform: skew(1deg); }
+  100% { transform: skew(0deg); }
+}
+
+@keyframes web-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes scan-line {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--spidey-glow-red));
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-gradient-spidey {
+    background: linear-gradient(135deg, hsl(var(--spidey-red)), hsl(var(--spidey-blue)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-spidey {
+    background: linear-gradient(135deg, hsl(var(--spidey-red)), hsl(var(--spidey-blue)));
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px hsl(var(--spidey-glow-red) / 0.3), 0 0 60px hsl(var(--spidey-glow-red) / 0.1);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px hsl(var(--spidey-glow-blue) / 0.3), 0 0 60px hsl(var(--spidey-glow-blue) / 0.1);
+  }
+
+  .border-glow-red {
+    border-color: hsl(var(--spidey-red));
+    box-shadow: 0 0 15px hsl(var(--spidey-glow-red) / 0.2), inset 0 0 15px hsl(var(--spidey-glow-red) / 0.05);
+  }
+
+  .border-glow-blue {
+    border-color: hsl(var(--spidey-blue));
+    box-shadow: 0 0 15px hsl(var(--spidey-glow-blue) / 0.2), inset 0 0 15px hsl(var(--spidey-glow-blue) / 0.05);
+  }
+}
+
+/* Spider-web radial pattern */
+@keyframes web-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spidey-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+  25%, 75% { opacity: 0.85; }
+}
+
+@keyframes web-shoot {
+  0% { transform: scaleX(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-120px) translateX(30px); opacity: 0; }
+}
+
+@keyframes glitch-text {
+  0% { text-shadow: 2px 0 hsl(var(--spidey-red)), -2px 0 hsl(var(--spidey-blue)); }
+  25% { text-shadow: -2px 0 hsl(var(--spidey-red)), 2px 0 hsl(var(--spidey-blue)); }
+  50% { text-shadow: 0 2px hsl(var(--spidey-red)), 0 -2px hsl(var(--spidey-blue)); }
+  75% { text-shadow: 2px 2px hsl(var(--spidey-red)), -2px -2px hsl(var(--spidey-blue)); }
+  100% { text-shadow: 2px 0 hsl(var(--spidey-red)), -2px 0 hsl(var(--spidey-blue)); }
+}
+
+/* Spidey particle effect on sections */
+.spidey-particles::before,
+.spidey-particles::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: particle-float 3s ease-in-out infinite;
+}
+
+.spidey-particles::before {
+  background: hsl(var(--spidey-red));
+  top: 60%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.spidey-particles::after {
+  background: hsl(var(--spidey-blue));
+  top: 40%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
