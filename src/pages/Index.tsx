@@ -6,10 +6,13 @@ import ServicesSection from "@/components/ServicesSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import CertificatesSection from "@/components/CertificatesSection";
+import GitHubSection from "@/components/GitHubSection";
+import LeetCodeSection from "@/components/LeetCodeSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import SpideyIntro from "@/components/SpideyIntro";
 import WebDecoration from "@/components/WebDecoration";
+import SpiderScrollAnimation from "@/components/SpiderScrollAnimation";
 import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
@@ -22,6 +25,7 @@ const Index = () => {
       {introComplete && (
         <>
           <WebDecoration />
+          <SpiderScrollAnimation />
           <Navbar />
           <HeroSection />
           <SectionDivider variant="red" />
@@ -32,6 +36,10 @@ const Index = () => {
           <SkillsSection />
           <SectionDivider variant="blue" />
           <ProjectsSection />
+          <SectionDivider variant="red" />
+          <GitHubSection />
+          <SectionDivider variant="blue" />
+          <LeetCodeSection />
           <SectionDivider variant="red" />
           <CertificatesSection />
           <SectionDivider variant="blue" />
