@@ -195,12 +195,6 @@ const SpideyIntro = ({ onComplete }: { onComplete: () => void }) => {
             >
               <span className="text-gradient-spidey">ANSAR ALI</span>
             </motion.h1>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={phase >= 2 ? { scaleX: 1 } : {}}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="h-[2px] bg-gradient-spidey mx-auto mt-3 w-48 origin-left"
-            />
             <motion.p
               initial={{ opacity: 0 }}
               animate={phase >= 3 ? { opacity: 1 } : {}}
