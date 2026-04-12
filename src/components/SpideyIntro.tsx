@@ -211,60 +211,6 @@ const SpideyIntro = ({ onComplete }: { onComplete: () => void }) => {
             </motion.p>
           </motion.div>
 
-          {/* Web shooting lines from corners */}
-          {[
-            { from: "0% 0%", to: "50% 50%" },
-            { from: "100% 0%", to: "50% 50%" },
-            { from: "0% 100%", to: "50% 50%" },
-            { from: "100% 100%", to: "50% 50%" },
-          ].map((line, i) => (
-            <motion.div
-              key={`web-${i}`}
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={phase >= 1 ? { opacity: [0, 0.4, 0.15], scaleX: 1 } : {}}
-              transition={{ delay: 0.4 + i * 0.1, duration: 0.6 }}
-              className="absolute w-full h-[1px]"
-              style={{
-                background: `linear-gradient(to right, transparent, hsl(var(--spidey-red) / 0.5), transparent)`,
-                transformOrigin: line.from,
-                top: "50%",
-                left: 0,
-                transform: `rotate(${[45, 135, -45, -135][i]}deg)`,
-              }}
-            />
-          ))}
-
-          {/* Corner web decorations - larger */}
-          {["top-0 left-0", "top-0 right-0 scale-x-[-1]", "bottom-0 left-0 scale-y-[-1]", "bottom-0 right-0 scale-[-1]"].map((pos, i) => (
-            <motion.div
-              key={`corner-${i}`}
-              initial={{ opacity: 0 }}
-              animate={phase >= 1 ? { opacity: 1 } : {}}
-              transition={{ delay: 0.3 + i * 0.1 }}
-              className={`absolute ${pos} w-48 h-48`}
-            >
-              <svg viewBox="0 0 100 100" className="w-full h-full opacity-25">
-                <path d="M0,0 Q50,5 100,0" stroke="hsl(var(--spidey-red))" fill="none" strokeWidth="0.4" />
-                <path d="M0,0 Q50,15 100,0" stroke="hsl(var(--spidey-red))" fill="none" strokeWidth="0.3" />
-                <path d="M0,0 Q5,50 0,100" stroke="hsl(var(--spidey-red))" fill="none" strokeWidth="0.4" />
-                <path d="M0,0 Q15,50 0,100" stroke="hsl(var(--spidey-red))" fill="none" strokeWidth="0.3" />
-                <path d="M0,0 L100,100" stroke="hsl(var(--spidey-red))" fill="none" strokeWidth="0.3" />
-                <path d="M0,0 Q30,15 50,50" stroke="hsl(var(--spidey-blue))" fill="none" strokeWidth="0.3" />
-                <path d="M0,0 Q15,30 50,50" stroke="hsl(var(--spidey-blue))" fill="none" strokeWidth="0.3" />
-              </svg>
-            </motion.div>
-          ))}
-
-          {/* Scan line effect */}
-          <motion.div
-            initial={{ top: "-10%" }}
-            animate={phase >= 1 ? { top: "110%" } : {}}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute left-0 right-0 h-[2px] z-20"
-            style={{
-              background: "linear-gradient(90deg, transparent, hsl(var(--spidey-red) / 0.3), transparent)",
-            }}
-          />
         </motion.div>
       )}
     </AnimatePresence>
